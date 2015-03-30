@@ -12,8 +12,6 @@
 		1DA3FD4D1AC8F12000197CD2 /* SecKeychainAccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FD4C1AC8F12000197CD2 /* SecKeychainAccessTests.m */; };
 		1DA3FD581AC8F12D00197CD2 /* SecKeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DA3FD591AC8F12D00197CD2 /* SecKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */; };
-		1DE9A34E1AC8F47B002AE1BE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9A34D1AC8F47B002AE1BE /* .gitignore */; };
-		1DE9A3501AC8F487002AE1BE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9A34F1AC8F487002AE1BE /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +33,6 @@
 		1DA3FD4C1AC8F12000197CD2 /* SecKeychainAccessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecKeychainAccessTests.m; sourceTree = "<group>"; };
 		1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeychainItem.h; sourceTree = "<group>"; };
 		1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeychainItem.m; sourceTree = "<group>"; };
-		1DE9A34D1AC8F47B002AE1BE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		1DE9A34F1AC8F487002AE1BE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +79,6 @@
 				1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */,
 				1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */,
 				1DA3FD3D1AC8F11F00197CD2 /* Supporting Files */,
-				1DE9A34D1AC8F47B002AE1BE /* .gitignore */,
-				1DE9A34F1AC8F487002AE1BE /* README.md */,
 			);
 			path = SecKeychainAccess;
 			sourceTree = "<group>";
@@ -205,7 +199,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE9A34E1AC8F47B002AE1BE /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +216,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE9A3501AC8F487002AE1BE /* README.md in Sources */,
 				1DA3FD591AC8F12D00197CD2 /* SecKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
