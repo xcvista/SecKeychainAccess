@@ -10,6 +10,8 @@
 		1DA3FD401AC8F11F00197CD2 /* SecKeychainAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DA3FD3F1AC8F11F00197CD2 /* SecKeychainAccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DA3FD461AC8F12000197CD2 /* SecKeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA3FD3A1AC8F11F00197CD2 /* SecKeychainAccess.framework */; };
 		1DA3FD4D1AC8F12000197CD2 /* SecKeychainAccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FD4C1AC8F12000197CD2 /* SecKeychainAccessTests.m */; };
+		1DA3FD581AC8F12D00197CD2 /* SecKeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DA3FD591AC8F12D00197CD2 /* SecKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		1DA3FD451AC8F12000197CD2 /* SecKeychainAccessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecKeychainAccessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA3FD4B1AC8F12000197CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA3FD4C1AC8F12000197CD2 /* SecKeychainAccessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecKeychainAccessTests.m; sourceTree = "<group>"; };
+		1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeychainItem.h; sourceTree = "<group>"; };
+		1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeychainItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				1DA3FD3F1AC8F11F00197CD2 /* SecKeychainAccess.h */,
+				1DA3FD561AC8F12D00197CD2 /* SecKeychainItem.h */,
+				1DA3FD571AC8F12D00197CD2 /* SecKeychainItem.m */,
 				1DA3FD3D1AC8F11F00197CD2 /* Supporting Files */,
 			);
 			path = SecKeychainAccess;
@@ -110,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA3FD401AC8F11F00197CD2 /* SecKeychainAccess.h in Headers */,
+				1DA3FD581AC8F12D00197CD2 /* SecKeychainItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA3FD591AC8F12D00197CD2 /* SecKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +246,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -268,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -285,7 +293,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -309,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
