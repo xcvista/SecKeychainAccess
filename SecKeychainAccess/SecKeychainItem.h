@@ -1,9 +1,8 @@
-/*
-     File: KeychainItemWrapper.h
- Abstract: 
- Objective-C wrapper for accessing a single keychain item.
+/*!
+ @file KeychainItemWrapper.h
+ @brief Objective-C wrapper for accessing a single keychain item.
  
-  Version: 1.2
+ @version 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -43,16 +42,19 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2010 Apple Inc. All Rights Reserved.
+ @copyright Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
 */
 
 #import <UIKit/UIKit.h>
 
-/*
-    The KeychainItemWrapper class is an abstraction layer for the iPhone Keychain communication. It is merely a 
-    simple wrapper to provide a distinct barrier between all the idiosyncracies involved with the Keychain
-    CF/NS container objects.
+NS_ASSUME_NONNULL_BEGIN
+
+/*!
+ The <code>SecKeychainItem</code> class is an abstraction layer for the iPhone
+ Keychain communication. It is merely a simple wrapper to provide a distinct
+ barrier between all the idiosyncracies involved with the Keychain CF/NS
+ container objects.
 */
 @interface SecKeychainItem : NSObject
 {
@@ -61,18 +63,21 @@
     NSMutableDictionary *_genericPasswordQuery;	// A placeholder for the generic keychain item query used to locate the item.
 }
 
-@property (nonatomic, retain) NSMutableDictionary *keychainItemData;
-@property (nonatomic, retain) NSMutableDictionary *genericPasswordQuery;
+@property (nonatomic, strong) NSMutableDictionary *keychainItemData;
+@property (nonatomic, strong) NSMutableDictionary *genericPasswordQuery;
 
 // Designated initializer.
-- (id)initWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                       accessGroup:(nullable NSString *)accessGroup NS_DESIGNATED_INITIALIZER;
 
 - (void)setObject:(id)inObject forKey:(id<NSCopying>)key;
 - (void)setObject:(id)inObject forKeyedSubscript:(id<NSCopying>)key;
-- (id)objectForKey:(id<NSCopying>)key;
-- (id)objectForKeyedSubscript:(id<NSCopying>)key;
+- (nullable id)objectForKey:(id<NSCopying>)key;
+- (nullable id)objectForKeyedSubscript:(id<NSCopying>)key;
 
 // Initializes and resets the default generic keychain item data.
 - (void)resetKeychainItem;
 
 @end
+
+NS_ASSUME_NONNULL_END

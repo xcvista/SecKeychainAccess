@@ -91,7 +91,7 @@ Keychain API expects as a validly constructed container class.
 
 @synthesize keychainItemData = _keychainItemData, genericPasswordQuery = _genericPasswordQuery;
 
-- (id)initWithIdentifier: (NSString *)identifier accessGroup:(NSString *) accessGroup;
+- (instancetype)initWithIdentifier: (NSString *)identifier accessGroup:(NSString *) accessGroup;
 {
     if (self = [super init])
     {
@@ -127,7 +127,7 @@ Keychain API expects as a validly constructed container class.
         
         NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:_genericPasswordQuery];
         
-        NSMutableDictionary *outDictionary = nil;
+        CFMutableDictionaryRef outDictionary = nil;
         
         if (! SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&outDictionary) == noErr)
         {
@@ -155,21 +155,18 @@ Keychain API expects as a validly constructed container class.
         else
         {
             // load the saved data from Keychain.
-            self.keychainItemData = [self secItemFormatToDictionary:outDictionary];
+            self.keychainItemData = [self secItemFormatToDictionary:(__bridge NSDictionary *)outDictionary];
         }
        
-		[outDictionary release];
+		CFRelease(outDictionary);
     }
     
 	return self;
 }
 
-- (void)dealloc
+- (instancetype)init
 {
-    [_keychainItemData release];
-    [_genericPasswordQuery release];
-    
-	[super dealloc];
+    return [self initWithIdentifier:[NSBundle mainBundle].bundleIdentifier accessGroup:nil];
 }
 
 - (void)setObject:(id)inObject forKey:(id)key 
@@ -253,15 +250,15 @@ Keychain API expects as a validly constructed container class.
     [returnDictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
     
     // Acquire the password data from the attributes.
-    NSData *passwordData = NULL;
+    CFDataRef passwordData = NULL;
     if (SecItemCopyMatching((CFDictionaryRef)returnDictionary, (CFTypeRef *)&passwordData) == noErr)
     {
         // Remove the search, class, and identifier key/value, we don't need them anymore.
         [returnDictionary removeObjectForKey:(id)kSecReturnData];
         
         // Add the password to the dictionary, converting from NSData to NSString.
-        NSString *password = [[[NSString alloc] initWithBytes:[passwordData bytes] length:[passwordData length] 
-                                                     encoding:NSUTF8StringEncoding] autorelease];
+        NSString *password = [[NSString alloc] initWithBytes:[(__bridge NSData *)passwordData bytes] length:[(__bridge NSData *)passwordData length]
+                                                     encoding:NSUTF8StringEncoding];
         [returnDictionary setObject:password forKey:(id)kSecValueData];
     }
     else
@@ -270,21 +267,21 @@ Keychain API expects as a validly constructed container class.
         NSAssert(NO, @"Serious error, no matching item found in the keychain.\n");
     }
     
-    [passwordData release];
+    CFRelease(passwordData);
    
 	return returnDictionary;
 }
 
 - (void)writeToKeychain
 {
-    NSDictionary *attributes = NULL;
+    CFDictionaryRef attributes = NULL;
     NSMutableDictionary *updateItem = NULL;
 	OSStatus result;
     
     if (SecItemCopyMatching((CFDictionaryRef)_genericPasswordQuery, (CFTypeRef *)&attributes) == noErr)
     {
         // First we need the attributes from the Keychain.
-        updateItem = [NSMutableDictionary dictionaryWithDictionary:attributes];
+        updateItem = [NSMutableDictionary dictionaryWithDictionary:(__bridge NSDictionary *)attributes];
         // Second we need to add the appropriate search key/values.
         [updateItem setObject:[_genericPasswordQuery objectForKey:(id)kSecClass] forKey:(id)kSecClass];
         
